@@ -11,6 +11,37 @@
         filter: blur(2px);
     }
 
+    /* Nav Compo  */
+    .header {
+        @apply flex justify-between items-center h-20 w-full px-4;
+    }
+    .menuContainer {
+        @apply flex justify-end md:justify-between items-center ml-2 w-full; 
+    }
+    .menu {
+        @apply bg-none;     
+    }
+    .menu.active {
+        @apply w-5/6 flex absolute mx-auto rounded-md left-0
+    }
+    .menu, .cta {
+        @apply hidden;
+        @apply md:flex;
+    }
+    .cta {
+        transition: all 500ms !important;
+        @apply bg-slate-800 px-4 py-2 rounded hover:bg-slate-500 hover:shadow-slate-500/50 shadow;
+    }
+    .menuButton {
+        @apply flex fill-slate-300 hover:fill-white transition-colors;
+        @apply md:hidden
+    }
+    .menuLink {
+        @apply text-white mx-4 font-medium;
+    }
+    .logo {
+        @apply min-h-max aspect-square
+    }
 
     /* pages */
     .customFocus {

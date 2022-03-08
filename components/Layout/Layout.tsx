@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { layoutProps } from 'utils/type'
 import { Navigation } from 'components/Navigation'
+import { Footer } from 'components/Footer'
 
 const Layout: FC<layoutProps> = ({ children, title}) => {
     return (
@@ -14,7 +15,10 @@ const Layout: FC<layoutProps> = ({ children, title}) => {
             </Head>
             <body className='bg-neutral-50 h-screen'>
                 <Navigation />
-                {children}
+                <main className='container'>
+                    {children}
+                </main>
+                <Footer />
             </body>
         </>
     )

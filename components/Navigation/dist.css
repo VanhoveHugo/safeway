@@ -1,0 +1,173 @@
+.header {
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    
+    .innerHeader {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: 80rem;
+    align-items: center;
+    justify-content: space-between;
+    }
+    
+    .menuContainer {
+    margin-left: 0.5rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    }
+    
+    @media (min-width: 768px) {
+    .menuContainer {
+        justify-content: space-between;
+    }
+    }
+    
+    .menu {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-image: none;
+    padding-bottom: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+    .menu {
+        padding-bottom: 0px;
+    }
+    }
+    
+    .menu.active {
+    position: absolute;
+    left: 0px;
+    top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    --tw-bg-opacity: 1;
+    background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+    --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    filter: var(--tw-filter);
+    }
+    
+    @media (min-width: 768px) {
+    .menu.active {
+        flex-direction: row;
+    }
+    
+    .menu.active {
+        justify-content: space-between;
+    }
+    }
+    
+    .menu.active .menuLink {
+    padding: 1rem;
+    }
+    
+    .menu.active .menuLink.cta {
+    position: relative;
+    margin-left: 2rem;
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    }
+    
+    .menu, .menuLink.cta {
+    display: none;
+    }
+    
+    @media (min-width: 768px) {
+    .menu, .menuLink.cta {
+        display: flex;
+    }
+    }
+    
+    .menuLink.cta {
+    transition: all 500ms !important;
+    border-radius: 0.25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    }
+    
+    .menuLink.cta:hover {
+    --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    filter: var(--tw-filter);
+    }
+    
+    .menuButton {
+    display: flex;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    fill: #334155;
+    transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    
+    @media (min-width: 768px) {
+    .menuButton {
+        display: none;
+    }
+    }
+    
+    .menuLink {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    --tw-text-opacity: 1;
+    color: rgb(51 65 85 / var(--tw-text-opacity));
+    }
+    
+    .menuLink.menuTitle {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    }
+    
+    .menuLink svg {
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    }

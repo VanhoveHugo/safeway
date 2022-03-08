@@ -4,6 +4,6 @@ export type layoutProps = {
 
 export type linkType = {
     path: string,
-    text: string,
+    text: any,
     className?: string
 }

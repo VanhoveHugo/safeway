@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import Head from 'next/head'
 
-import { layoutProps } from 'utils/type'
-import { Navigation } from 'components/Navigation'
-import { Footer } from 'components/Footer'
+import { Navigation } from '@components/Navigation'
+import { Footer } from '@components/Footer'
+import { layoutProps } from '@utils/type'
 
 const Layout: FC<layoutProps> = ({ children, title}) => {
     return (

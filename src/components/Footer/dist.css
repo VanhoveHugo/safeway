@@ -1,0 +1,17 @@
+.footer{
+    width:100%;
+    text-align:center
+}
+.copyright{
+    --tw-bg-opacity:1;
+    background-color:rgb(255 255 255 / var(--tw-bg-opacity));
+    padding-top:.75rem;
+    padding-bottom:.75rem;
+    font-weight:600;
+    --tw-text-opacity:1;
+    color:rgb(71 85 105 / var(--tw-text-opacity))
+}
+.copyright span{
+    --tw-text-opacity:1;
+    color:rgb(51 65 85 / var(--tw-text-opacity))
+}

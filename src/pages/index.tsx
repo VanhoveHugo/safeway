@@ -1,12 +1,24 @@
 import type { NextPage } from 'next'
-import { Layout } from 'components/Layout'
+import { Layout } from '@components/Layout'
+import { useSession } from "next-auth/react"
 
 const Home: NextPage = () => {
+  const { data: session } = useSession()
+
   return (
     <Layout title="Safe Way">
-      <h1 className="text-red-500 text-lg font-bold text-center">First Commit</h1>
+      <div className="hero">
+      </div>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      hello: 'world'
+    }
+  }
 }
 
 export default Home

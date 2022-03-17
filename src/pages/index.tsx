@@ -3,7 +3,8 @@ import { Layout } from '@components/Layout'
 import { useSession } from "next-auth/react"
 
 const Home: NextPage = () => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
 
   return (
     <Layout title="Safe Way">
@@ -11,14 +12,6 @@ const Home: NextPage = () => {
       </div>
     </Layout>
   )
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      hello: 'world'
-    }
-  }
 }
 
 export default Home

@@ -2,9 +2,24 @@ import { FC, useEffect, useState } from 'react'
 import style from './component.module.css'
 import { VscBeaker } from 'react-icons/vsc'
 import { signIn, signOut, useSession } from "next-auth/react"
+import styled from 'styled-components'
 
 import Redirect from '@utils/link'
 
+const Header = styled.header`
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+`
 
 const Navigation: FC<any> = ({ children }) => {
     const { data: session, status } = useSession()
@@ -15,7 +30,6 @@ const Navigation: FC<any> = ({ children }) => {
         var header = document.querySelector('header')
         let result = document.querySelector("#menu")?.classList.toggle(style.active)
         setMenuState(Boolean(result))
-        console.log(header)
     }
     const handleResize = () => {
         if(document.querySelector("#menu")?.classList.contains(style.active) && window.innerWidth >= 768) {
@@ -25,13 +39,11 @@ const Navigation: FC<any> = ({ children }) => {
         }
     }
     useEffect(() => {
-        console.log(document.querySelector("#menu"))
-
         if(menuState === true) window.addEventListener('resize', handleResize)
     }, [menuState])
 
     return (
-        <header className={style.header}>
+        <Header>
             <div className={style.innerHeader}>
                 <Redirect 
                     text="Safeway"
@@ -54,25 +66,40 @@ const Navigation: FC<any> = ({ children }) => {
                                     path='.' 
                                     className={style.menuLink} />
                         </nav>
-                        {session ? 
-                            <a 
-                                href="/api/auth/logout" 
-                                className={style.menuLink + " " + style.cta}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    signOut()
-                                }}
-                                >
-                                    {session.user.name}
-                                </a>
-                            : 
-                            <a href="/api/auth/signin" className={style.menuLink + " " + style.cta}>Connexion</a>
-                        }
                         
+                            {status != 'loading' && (
+                                <>
+                                    {session?.user && (
+                                        <a 
+                                        href="/api/auth/logout" 
+                                        className={style.menuLink + " " + style.cta_login}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            signOut()
+                                        }}
+                                        >
+                                            {session.user.image != undefined  && (
+                                                <img src={session.user.image} alt="Image of your address mail" />
+                                            )}
+                                        </a>
+                                    )}
+                                    {!session?.user && (
+                                        <button 
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                signIn('google')
+                                            }}
+                                            className={style.menuLink + " " + style.cta}
+                                        >
+                                            Connexion
+                                        </button>
+                                    )}
+                                </>
+                            )}
                     </div>
                 </div>
             </div>
-        </header>
+        </Header>
     )
 }
 

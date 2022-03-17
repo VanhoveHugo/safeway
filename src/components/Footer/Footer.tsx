@@ -4,8 +4,9 @@ import style from './component.module.css'
 const Navigation: FC<any> = () => {
     return (
         <footer className={style.footer}>
+            <hr />
             <div className={style.copyright}>
-                © 2022 Copyright: <span>Safeway</span>
+                Copyright © 2022 Safeway by Hugo.
             </div>
         </footer>
     )

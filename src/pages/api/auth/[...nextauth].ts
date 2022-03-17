@@ -1,16 +1,19 @@
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import clientPromise from "@utils/mongoDB"
 
 export default NextAuth({
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+    GoogleProvider({
+      clientId: <string>process.env.GOOGLE_ID,
+      clientSecret: <string>process.env.GOOGLE_SECRET,
     })
   ],
 
   secret: process.env.SECRET,
+  adapter: MongoDBAdapter(clientPromise),
 
   theme: {
     colorScheme: "light",
@@ -18,7 +21,6 @@ export default NextAuth({
 
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "admin"
       return token
     },
   },

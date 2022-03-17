@@ -4,7 +4,7 @@
 
 @layer components {
     body {
-        @apply font-sans flex flex-col;
+        @apply font-sans flex flex-col h-screen bg-neutral-50;
         transition: filter 400ms;
     }
     body.loading {
@@ -13,9 +13,6 @@
 
     /* Main */
     .container {
-        @apply flex-1 mx-auto;
-    }
-
-    .hero {
+        @apply flex-1 mx-auto max-w-7xl text-center;
     }
 }

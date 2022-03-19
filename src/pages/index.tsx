@@ -9,6 +9,7 @@ const Home: NextPage = () => {
   return (
     <Layout title="Safe Way">
       <section className="hero">
+        
       </section>
     </Layout>
   )

@@ -3,10 +3,13 @@ import style from './component.module.css'
 import { VscBeaker } from 'react-icons/vsc'
 import { signIn, signOut, useSession } from "next-auth/react"
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import Redirect from '@utils/link'
 
 const Header = styled.header`
+    position: relative;
+    z-index:100;
     display: flex;
     height: 4rem;
     width: 100%;
@@ -14,6 +17,7 @@ const Header = styled.header`
     justify-content: space-between;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    background: #fff;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -70,18 +74,21 @@ const Navigation: FC<any> = ({ children }) => {
                             {status != 'loading' && (
                                 <>
                                     {session?.user && (
-                                        <a 
+                                        <Link 
                                         href="/api/auth/logout" 
-                                        className={style.menuLink + " " + style.cta_login}
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            signOut()
-                                        }}
                                         >
-                                            {session.user.image != undefined  && (
-                                                <img src={session.user.image} alt="Image of your address mail" />
-                                            )}
-                                        </a>
+                                            <a 
+                                                className={style.menuLink + " " + style.cta_login}
+                                                onClick={(e) => {
+                                                    e.preventDefault()
+                                                    signOut()
+                                                }}
+                                            >
+                                                {session.user.image != undefined  && (
+                                                    <img src={session.user.image} alt="Image of your address mail" />
+                                                )}
+                                            </a>
+                                        </Link>
                                     )}
                                     {!session?.user && (
                                         <button 

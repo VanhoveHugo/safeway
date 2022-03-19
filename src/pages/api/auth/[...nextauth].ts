@@ -1,8 +1,7 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import clientPromise from "@utils/mongoose"
+import clientPromise from "@utils/clientPromise"
 
 export default NextAuth({
   providers: [

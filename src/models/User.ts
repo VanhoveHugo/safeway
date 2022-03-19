@@ -6,8 +6,7 @@ const TaskSchema = new Schema(
       type: String,
       required: [true, "The user name is required"],
       unique: false,
-      trim: true,
-      maxlength: [40, "title cannot be grater than 40 characters"],
+      trim: true
     },
     email: {
       type: String,

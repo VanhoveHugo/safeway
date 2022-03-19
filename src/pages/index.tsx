@@ -8,8 +8,8 @@ const Home: NextPage = () => {
 
   return (
     <Layout title="Safe Way">
-      <div className="hero">
-      </div>
+      <section className="hero">
+      </section>
     </Layout>
   )
 }

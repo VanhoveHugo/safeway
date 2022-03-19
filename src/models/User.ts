@@ -2,16 +2,17 @@ import { Schema, model, models } from "mongoose";
 
 const TaskSchema = new Schema(
   {
-    title: {
+    name: {
       type: String,
-      required: [true, "The Task title is required "],
-      unique: true,
+      required: [true, "The user name is required"],
+      unique: false,
       trim: true,
       maxlength: [40, "title cannot be grater than 40 characters"],
     },
-    description: {
+    email: {
       type: String,
       required: true,
+      unique: true,
       trim: true,
       maxlength: [200, "title cannot be grater than 200 characters"],
     },
@@ -22,4 +23,4 @@ const TaskSchema = new Schema(
   }
 );
 
-export default models.Task || model("Task", TaskSchema);
+export default models.User || model("User", TaskSchema);
